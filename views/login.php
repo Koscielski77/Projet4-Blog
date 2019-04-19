@@ -1,8 +1,14 @@
 <?php $title = 'Connexion'; ?>
 
+<!-- On utilise ob_start() qui au lancement de la page démarre la temporisation de sortie. Tant qu'elle est enclenchée, aucune donnée, hormis les en-têtes, n'est envoyée au navigateur, mais temporairement mise en tampon. -->
+
 <?php ob_start(); ?>
 
+<!-- Titre de connexion classique -->
+
 <h1>Connexion</h1>
+
+<!-- Si la variable message est "set". On affiche un message suivant les informations qu'a rentré l'utilisateur -->
 
 <?php
 if (isset($message)) {
@@ -26,6 +32,10 @@ if (isset($message)) {
 
 </form>
 
+<!-- On execute ob_get_clean qui lit le contenu courant du tampon de sortie puis l'efface -->
+
 <?php $content = ob_get_clean(); ?>
+
+<!-- On ajoute la vue de la template -->
 
 <?php require('views/template.php'); ?>
